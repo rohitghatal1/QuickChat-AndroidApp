@@ -3,7 +3,7 @@ import bcrypt from "bcryptjs";
 import User from "../models/userModel";
 import { generateToken } from "../utils/jwt";
 
-export const registerUser = async (req:Request, res: Response) => {
+export const registerUser = async (req:any, res: any) => {
     try{
         const {name, number, username, email, password} = req.body;
 
@@ -26,7 +26,7 @@ export const registerUser = async (req:Request, res: Response) => {
     }
 };
 
-export const loginUser = async (req: Request, res: Response) => {
+export const loginUser = async (req: any, res: any) => {
     try{
         const {number, password} = req.body;
 

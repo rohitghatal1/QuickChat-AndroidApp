@@ -1,10 +1,12 @@
 {
   "compilerOptions": {
-    "outDir": "./dist",
-    "rootDir": "./src",
-    "strict": true,
-    "moduleResolution": "node",
-    "esModuleInterop": true,
-    "skipLibCheck": true,
-  }
+    "module": "NodeNext",  // Enables ES module support
+    "moduleResolution": "NodeNext",
+    "target": "ES6",
+    "rootDir": "src",
+    "outDir": "dist",
+    "strict": true
+  },
+  "include": ["src"],
+  "exclude": ["node_modules"]
 }
