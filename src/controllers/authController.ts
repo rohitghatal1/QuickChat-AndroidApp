@@ -38,11 +38,7 @@ export const loginUser = async (req: any, res: any) => {
         if(!isMatch) return res.status(400).json({message: "Invalid credentials"});
 
         res.json({
-             "message": "logged in successfylly",
-            _id: user.id,
-            name: user.name,
-            number: user.number,
-            email:user.email,
+            "message": "logged in successfylly",
             token: generateToken(user.id),
         })
     } catch (err:any) {
