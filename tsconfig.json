@@ -1,6 +1,6 @@
 {
   "compilerOptions": {
-    "module": "NodeNext",  // Enables ES module support
+    "module": "NodeNext",
     "moduleResolution": "NodeNext",
     "target": "ES6",
     "rootDir": "src",

@@ -5,7 +5,7 @@
   "scripts": {
     "build": "tsc",
     "start": "node dist/server.js",
-    "dev": "node src/server.ts",
+    "dev": "ts-node-dev src/server.ts",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [],
@@ -17,9 +17,11 @@
     "cors": "^2.8.5",
     "dotenv": "^16.4.7",
     "express": "^4.21.2",
+    "express-async-errors": "^3.1.1",
     "helmet": "^8.0.0",
     "jsonwebtoken": "^9.0.2",
-    "mongoose": "^8.10.0"
+    "mongoose": "^8.10.0",
+    "ts-node-dev": "^2.0.0"
   },
   "devDependencies": {
     "@types/bcryptjs": "^2.4.6",
