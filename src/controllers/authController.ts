@@ -7,8 +7,8 @@ export const registerUser = async (req:any, res: any) => {
     try{
         const {name, number, username, email, password} = req.body;
 
-        const userExists = await User.findOne({email});
-        if(userExists) return res.status(400).json({message: "User already exists"});
+        const userExists = await User.findOne({number});
+        if(userExists) return res.status(400).json({status: "Failed", message: "User already exists"});
 
         const hashedPassword = await bcrypt.hash(password, 10);
         const user = await User.create({name, number, username, email, password: hashedPassword});
@@ -35,9 +35,10 @@ export const loginUser = async (req: any, res: any) => {
 
 
         const isMatch = await bcrypt.compare(password, user.password);
-        if(!isMatch) return res.status(400).json({message: "Invalid credentials"});
+        if(!isMatch) return res.status(400).json({status:"Failed", message: "Invalid Password"});
 
         res.json({
+            "status" : "Sucess",
             "message": "logged in successfylly",
             token: generateToken(user.id),
         })
