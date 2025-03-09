@@ -1,4 +1,3 @@
-import { Request, Response } from "express";
 import bcrypt from "bcryptjs";
 import User from "../models/userModel";
 import { generateToken } from "../utils/jwt";
@@ -38,7 +37,7 @@ export const loginUser = async (req: any, res: any) => {
         if(!isMatch) return res.status(400).json({status:"Failed", message: "Invalid Password"});
 
         res.json({
-            "status" : "Sucess",
+            "status" : "Success",
             "message": "logged in successfylly",
             token: generateToken(user.id),
         })
