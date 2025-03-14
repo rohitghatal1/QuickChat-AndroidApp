@@ -4,3 +4,12 @@ export interface IAdminInterface {
     number: String;
     password: String;
 }
+
+const adminSchema = new Schema<IAdminInterface>(
+    {
+    number: {type: String, unique: true, required: true},
+    password: {type: String, required: true}
+    }, {timestamps: true}
+);
+
+export default mongoose.model<IAdminInterface>("Admin", adminSchema);
