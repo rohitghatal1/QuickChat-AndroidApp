@@ -1,8 +1,8 @@
 import mongoose, {Document, Schema} from "mongoose";
 
 export interface IAdminInterface {
-    number: String;
-    password: String;
+    number: string;
+    password: string;
 }
 
 const adminSchema = new Schema<IAdminInterface>(
