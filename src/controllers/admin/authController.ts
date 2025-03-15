@@ -20,6 +20,7 @@ export const adminRegister = async (req:any, res:any) => {
         res.status(500).json({message: "Server Error"});
     }
 }
+
 export const adminLogin = async (req:any, res:any) => {
     try{
         const {number, password} = req.body;

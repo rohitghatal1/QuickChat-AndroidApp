@@ -1,13 +1,10 @@
 import express from "express";
+import { adminLogin, adminRegister } from "../../controllers/admin/authController";
 
 const router = express.Router();
 
-router.post("/reigster", ()=> {
-    console.log("admin register called");
-})
+router.post("/reigster", adminRegister);
 
-router.post("/login", () => {
-    console.log("Admin login called");
-})
+router.post("/login", adminLogin);
 
 export default router;
