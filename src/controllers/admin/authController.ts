@@ -2,7 +2,25 @@ import Admin from "../../models/adminModel";
 import bcrypt from "bcryptjs";
 import { generateToken } from "../../utils/jwt";
 
-export const adminLogin = async (req:any, res:any) =>{
+export const adminRegister = async (req:any, res:any) => {
+    try{
+        const {name, number, password} = req.body;
+
+        const adminExists = await Admin.findOne({number});
+        if(adminExists) return res.status(400).json({status: "failed", message: "User Already exist with this number!"});
+
+        const hashedPassword =await bcrypt.hash(password,10);
+        const admin = await Admin.create({name: name, number: number, password: hashedPassword});
+
+        res.status(201).json({
+            status: "success",
+            message: "Admin Created successfully"
+        })
+    } catch (error){
+        res.status(500).json({message: "Server Error"});
+    }
+}
+export const adminLogin = async (req:any, res:any) => {
     try{
         const {number, password} = req.body;
         
@@ -19,6 +37,6 @@ export const adminLogin = async (req:any, res:any) =>{
         })
 
     } catch (err:any){
-        console.log(err)
+        res.status(500).json({message: "Server Error"});
     }
 }
