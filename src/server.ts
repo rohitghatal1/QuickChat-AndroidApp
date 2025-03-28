@@ -5,6 +5,7 @@ import helmet from "helmet"
 import connectDB from "./config/db"
 import authRoutes from "./routes/authRoutes";
 import errorHandler from "./utils/errorHandler"
+import userRoutes from "./routes/userRoutes";
 
 dotenv.config();
 
@@ -16,6 +17,7 @@ app.use(helmet());
 app.use(errorHandler)
 
 app.use("/api/auth", authRoutes);
+app.use("/api/users", userRoutes );
 
 const PORT = process.env.PORT || 5000;
 
