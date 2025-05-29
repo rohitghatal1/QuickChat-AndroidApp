@@ -15,7 +15,6 @@ dotenv.config();
 const app = express();
 var server = http.createServer(app);
 
-//Socket.IO server initialization
 var io = new SocketIOSever(server, {
     cors: {
         origin: "*",
@@ -23,17 +22,14 @@ var io = new SocketIOSever(server, {
     }
 })
 
-//middlewares
 app.use(express.json());
 app.use(cors());
 app.use(helmet());
 
-//routes
 app.use("/api/auth", authRoutes);
 app.use("/api/users", userRoutes );
 app.use("/api/admin", amdinAuth )
 
-//Global error handler
 app.use(errorHandler);
 
 //Socket.IO connection listener
